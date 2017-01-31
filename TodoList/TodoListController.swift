@@ -15,14 +15,14 @@ class TodoListController: UITableViewController, NSFetchedResultsControllerDeleg
     
 
     
-    lazy var fetchRequest: NSFetchRequest<NSFetchRequestResult> = { () -> NSFetchRequest<NSFetchRequestResult> in
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
+    lazy var fetchRequest: NSFetchRequest<Item> = { () -> NSFetchRequest<Item> in
+        let request = NSFetchRequest<Item>(entityName: "Item")
         let sortDescriptor = NSSortDescriptor(key: "text", ascending: true)
         request.sortDescriptors = [sortDescriptor]
-        return request
+        return request 
     }()
     
-    lazy var fetchedResultsController: NSFetchedResultsController = { () -> NSFetchedResultsController<NSFetchRequest> in
+    lazy var fetchedResultsController: NSFetchedResultsController<Item> = {
         
         let controller = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         controller.delegate = self
@@ -56,7 +56,7 @@ class TodoListController: UITableViewController, NSFetchedResultsControllerDeleg
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return fetchedResultsController.sections.count ?? 0
+        return fetchedResultsController.sections?.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
