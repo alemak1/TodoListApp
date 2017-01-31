@@ -15,6 +15,8 @@
 		BD52CAB61E4039D300392737 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52CAB51E4039D300392737 /* CoreDataStack.swift */; };
 		BD52CAB91E40444F00392737 /* TodoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BD52CAB71E40444F00392737 /* TodoList.xcdatamodeld */; };
 		BD52CABB1E4046F200392737 /* TodoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52CABA1E4046F200392737 /* TodoListController.swift */; };
+		BD7BD2FF1E406E0200E1689D /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7BD2FD1E406E0200E1689D /* Item+CoreDataClass.swift */; };
+		BD7BD3001E406E0200E1689D /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7BD2FE1E406E0200E1689D /* Item+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,9 @@
 		BD52CAB51E4039D300392737 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		BD52CAB81E40444F00392737 /* TodoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TodoList.xcdatamodel; sourceTree = "<group>"; };
 		BD52CABA1E4046F200392737 /* TodoListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TodoListController.swift; sourceTree = "<group>"; };
+		BD7BD2F61E40699000E1689D /* TodoList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TodoList-Bridging-Header.h"; sourceTree = "<group>"; };
+		BD7BD2FD1E406E0200E1689D /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BD7BD2FE1E406E0200E1689D /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,8 +49,11 @@
 		BD52CA971E4032D500392737 = {
 			isa = PBXGroup;
 			children = (
+				BD7BD2FD1E406E0200E1689D /* Item+CoreDataClass.swift */,
+				BD7BD2FE1E406E0200E1689D /* Item+CoreDataProperties.swift */,
 				BD52CAA21E4032D500392737 /* TodoList */,
 				BD52CAA11E4032D500392737 /* Products */,
+				BD7BD2F61E40699000E1689D /* TodoList-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +113,7 @@
 				TargetAttributes = {
 					BD52CA9F1E4032D500392737 = {
 						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -145,6 +154,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD7BD3001E406E0200E1689D /* Item+CoreDataProperties.swift in Sources */,
+				BD7BD2FF1E406E0200E1689D /* Item+CoreDataClass.swift in Sources */,
 				BD52CABB1E4046F200392737 /* TodoListController.swift in Sources */,
 				BD52CAB61E4039D300392737 /* CoreDataStack.swift in Sources */,
 				BD52CAA61E4032D500392737 /* ViewController.swift in Sources */,
@@ -272,10 +283,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TodoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.changzhoupanda.TodoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TodoList-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -284,10 +298,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TodoList/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.changzhoupanda.TodoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TodoList-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -311,6 +327,7 @@
 				BD52CAB41E4032D500392737 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
