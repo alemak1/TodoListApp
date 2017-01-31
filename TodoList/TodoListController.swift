@@ -81,7 +81,11 @@ class TodoListController: UITableViewController, NSFetchedResultsControllerDeleg
         
     }
  
-    //MARK: NSFetchedResultsControllerDelegeate
+    //MARK: NSFetchedResultsControllerDelegate
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.reloadData()
+    }
 
     /*
     // Override to support conditional editing of the table view.
