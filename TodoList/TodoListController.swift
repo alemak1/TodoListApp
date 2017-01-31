@@ -15,14 +15,15 @@ class TodoListController: UITableViewController, NSFetchedResultsControllerDeleg
     
 
     
-    lazy var fetchRequest: NSFetchRequest = { () -> NSFetchRequest<NSFetchRequestResult> in
+    lazy var fetchRequest: NSFetchRequest<NSFetchRequestResult> = { () -> NSFetchRequest<NSFetchRequestResult> in
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
         let sortDescriptor = NSSortDescriptor(key: "text", ascending: true)
         request.sortDescriptors = [sortDescriptor]
         return request
     }()
     
-    lazy var fetchedResultsController: NSFetchedResultsController = { () -> NSFetchedResultsController<NSFetchRequestResult> in
+    lazy var fetchedResultsController: NSFetchedResultsController = { () -> NSFetchedResultsController<NSFetchRequest> in
+        
         let controller = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         controller.delegate = self
         return controller
