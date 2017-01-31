@@ -11,10 +11,15 @@ import CoreData
 
 public class DataController: NSObject{
     
+    static let sharedInstance = DataController()
+    
+    private override init() {}
+    
     private lazy var applicationDocumentsDirectory: NSURL = {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return urls[urls.endIndex-1] as! NSURL
+        return urls[urls.count-1] as NSURL
     }()
+    
     
     private lazy var managedObjectModel: NSManagedObjectModel = {
         let modelURL = Bundle.main.url(forResource: "TodoList", withExtension: "momd")!
@@ -53,5 +58,16 @@ public class DataController: NSObject{
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
+    
+    
+    public func saveContext(){
+        if managedObjectContext.hasChanges{
+            do{
+                try managedObjectContext.save()
+            } catch let error as NSError {
+                print("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
+    }
     
 }
