@@ -12,6 +12,7 @@
 		BD52CAA91E4032D500392737 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD52CAA71E4032D500392737 /* Main.storyboard */; };
 		BD52CAAB1E4032D500392737 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD52CAAA1E4032D500392737 /* Assets.xcassets */; };
 		BD52CAAE1E4032D500392737 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BD52CAAC1E4032D500392737 /* LaunchScreen.storyboard */; };
+		BD52CAB61E4039D300392737 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52CAB51E4039D300392737 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		BD52CAAA1E4032D500392737 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BD52CAAD1E4032D500392737 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BD52CAAF1E4032D500392737 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BD52CAB51E4039D300392737 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				BD52CAA31E4032D500392737 /* AppDelegate.swift */,
 				BD52CAA51E4032D500392737 /* ViewController.swift */,
+				BD52CAB51E4039D300392737 /* CoreDataStack.swift */,
 				BD52CAA71E4032D500392737 /* Main.storyboard */,
 				BD52CAAA1E4032D500392737 /* Assets.xcassets */,
 				BD52CAAC1E4032D500392737 /* LaunchScreen.storyboard */,
@@ -136,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD52CAB61E4039D300392737 /* CoreDataStack.swift in Sources */,
 				BD52CAA61E4032D500392737 /* ViewController.swift in Sources */,
 				BD52CAA41E4032D500392737 /* AppDelegate.swift in Sources */,
 			);
