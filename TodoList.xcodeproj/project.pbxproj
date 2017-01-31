@@ -17,6 +17,7 @@
 		BD52CABB1E4046F200392737 /* TodoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD52CABA1E4046F200392737 /* TodoListController.swift */; };
 		BD7BD2FF1E406E0200E1689D /* Item+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7BD2FD1E406E0200E1689D /* Item+CoreDataClass.swift */; };
 		BD7BD3001E406E0200E1689D /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7BD2FE1E406E0200E1689D /* Item+CoreDataProperties.swift */; };
+		BD7BD3021E407F0700E1689D /* FetchedResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD7BD3011E407F0700E1689D /* FetchedResultsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		BD7BD2F61E40699000E1689D /* TodoList-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TodoList-Bridging-Header.h"; sourceTree = "<group>"; };
 		BD7BD2FD1E406E0200E1689D /* Item+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataClass.swift"; sourceTree = "<group>"; };
 		BD7BD2FE1E406E0200E1689D /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BD7BD3011E407F0700E1689D /* FetchedResultsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FetchedResultsController.swift; path = ../FetchedResultsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		BD52CAA21E4032D500392737 /* TodoList */ = {
 			isa = PBXGroup;
 			children = (
+				BD7BD3011E407F0700E1689D /* FetchedResultsController.swift */,
 				BD52CAA31E4032D500392737 /* AppDelegate.swift */,
 				BD52CAA51E4032D500392737 /* ViewController.swift */,
 				BD52CAB51E4039D300392737 /* CoreDataStack.swift */,
@@ -156,6 +159,7 @@
 			files = (
 				BD7BD3001E406E0200E1689D /* Item+CoreDataProperties.swift in Sources */,
 				BD7BD2FF1E406E0200E1689D /* Item+CoreDataClass.swift in Sources */,
+				BD7BD3021E407F0700E1689D /* FetchedResultsController.swift in Sources */,
 				BD52CABB1E4046F200392737 /* TodoListController.swift in Sources */,
 				BD52CAB61E4039D300392737 /* CoreDataStack.swift in Sources */,
 				BD52CAA61E4032D500392737 /* ViewController.swift in Sources */,

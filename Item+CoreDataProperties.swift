@@ -15,6 +15,18 @@ extension Item {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Item> {
         return NSFetchRequest<Item>(entityName: "Item");
     }
+    
+    
+    /*
+    static let fetchRequest: NSFetchRequest<Item> = { () -> NSFetchRequest<Item> in
+        let request = NSFetchRequest<Item>(entityName: "Item")
+        let sortDescriptor = NSSortDescriptor(key: "text", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        return request
+    }()
+    
+    */
+    
 
     @NSManaged public var completed: Bool
     @NSManaged public var text: String?

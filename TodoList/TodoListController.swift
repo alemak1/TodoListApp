@@ -14,18 +14,10 @@ class TodoListController: UITableViewController, NSFetchedResultsControllerDeleg
     let managedObjectContext = DataController.sharedInstance.managedObjectContext
     
 
-    
-    lazy var fetchRequest: NSFetchRequest<Item> = { () -> NSFetchRequest<Item> in
-        let request = NSFetchRequest<Item>(entityName: "Item")
-        let sortDescriptor = NSSortDescriptor(key: "text", ascending: true)
-        request.sortDescriptors = [sortDescriptor]
-        return request 
-    }()
-    
-    lazy var fetchedResultsController: NSFetchedResultsController<Item> = {
+  
+    lazy var fetchedResultsController: TodoFetchedResultsController = {
         
-        let controller = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-        controller.delegate = self
+        let controller = TodoFetchedResultsController(managedObjectContext: self.managedObjectContext, withTableView: self.tableView)
         return controller
     }()
 
@@ -33,12 +25,7 @@ class TodoListController: UITableViewController, NSFetchedResultsControllerDeleg
         super.viewDidLoad()
         
         
-        do{
-            try self.fetchedResultsController.performFetch()
-        } catch let error as NSError {
-            print("Error fetching Item objects: \(error.localizedDescription),\(error.userInfo)")
-            
-        }
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -82,11 +69,6 @@ class TodoListController: UITableViewController, NSFetchedResultsControllerDeleg
         
     }
  
-    //MARK: NSFetchedResultsControllerDelegate
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.reloadData()
-    }
 
     /*
     // Override to support conditional editing of the table view.
