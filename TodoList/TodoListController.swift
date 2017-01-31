@@ -9,15 +9,11 @@
 import UIKit
 import CoreData
 
-class TodoListController: UITableViewController {
+class TodoListController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     let managedObjectContext = DataController.sharedInstance.managedObjectContext
     
-    var items: [Item] = [] {
-        didSet{
-            tableView.reloadData()
-        }
-    }
+
     
     lazy var fetchRequest: NSFetchRequest = { () -> NSFetchRequest<NSFetchRequestResult> in
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Item")
@@ -25,12 +21,19 @@ class TodoListController: UITableViewController {
         request.sortDescriptors = [sortDescriptor]
         return request
     }()
+    
+    lazy var fetchedResultsController: NSFetchedResultsController = { () -> NSFetchedResultsController<NSFetchRequestResult> in
+        let controller = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: self.managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        controller.delegate = self
+        return controller
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         do{
-            items = try managedObjectContext.execute(fetchRequest) as! [Item]
+            try self.fetchedResultsController.performFetch()
         } catch let error as NSError {
             print("Error fetching Item objects: \(error.localizedDescription),\(error.userInfo)")
             
@@ -52,12 +55,13 @@ class TodoListController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return fetchedResultsController.sections.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return items.count
+        guard let section = fetchedResultsController.sections?[section] else { return 0}
+        return section.numberOfObjects
     }
 
     
@@ -65,11 +69,19 @@ class TodoListController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         // Configure the cell...
-        cell.textLabel?.text = items[indexPath.row].text
         
+        return configureCell(cell: cell, atIndexPath: indexPath)
+    }
+    
+    private func configureCell(cell: UITableViewCell, atIndexPath indexPath: IndexPath) -> UITableViewCell{
+        
+        let item = self.fetchedResultsController.object(at: indexPath) as! Item
+        cell.textLabel?.text = item.text
         return cell
+        
     }
  
+    //MARK: NSFetchedResultsControllerDelegeate
 
     /*
     // Override to support conditional editing of the table view.
